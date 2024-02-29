@@ -1,4 +1,4 @@
-package de.voomdoon.tool.projecttime;
+package de.voomdoon.projecttime.statistics;
 
 /**
  * DOCME add JavaDoc for 
@@ -7,6 +7,6 @@ package de.voomdoon.tool.projecttime;
  *
  * @since DOCME add inception version number
  */
-public class ProjectTimeMain {
+public class ProjectTimeStatisticsMain {
 
 }

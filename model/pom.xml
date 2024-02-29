@@ -4,20 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>de.voomdoon</groupId>
-		<artifactId>vd-parent</artifactId>
+		<groupId>de.voomdoon.util</groupId>
+		<artifactId>vd-util-parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>de.voomdoon.projecttime</groupId>
-	<artifactId>project-time</artifactId>
+	<artifactId>project-time-model</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
-
-	<packaging>pom</packaging>
-
-	<modules>
-		<module>model</module>
-		<module>statistics</module>
-		<module>view</module>
-	</modules>
 </project>
