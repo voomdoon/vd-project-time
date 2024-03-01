@@ -1,6 +1,7 @@
 package de.voomdoon.projecttime.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalDate;
 
@@ -18,6 +19,116 @@ import de.voomdoon.testing.tests.TestBase;
 class ProjectDayTest extends TestBase {
 
 	/**
+	 * @since 0.1.0
+	 */
+	private static final LocalDate ANY_DATE = LocalDate.of(2024, 3, 1);
+
+	/**
+	 * DOCME add JavaDoc for method getGetHours
+	 * 
+	 * @since 0.1.0
+	 */
+	@Test
+	void getGetHours() throws Exception {
+		logTestStart();
+
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
+		projectDay.addHours(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+
+		int[] actuals = projectDay.getHours();
+
+		assertThat(actuals)
+				.isEqualTo(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+	}
+
+	/**
+	 * DOCME add JavaDoc for method getGetHours
+	 * 
+	 * @since 0.1.0
+	 */
+	@Test
+	void getGetHours_resultIsNotInternal() throws Exception {
+		logTestStart();
+
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
+		projectDay.addHours(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+
+		int[] actuals = projectDay.getHours();
+		actuals[1] = 1;
+
+		actuals = projectDay.getHours();
+
+		assertThat(actuals)
+				.isEqualTo(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+	}
+
+	/**
+	 * DOCME add JavaDoc for method testAddHours
+	 * 
+	 * @since 0.1.0
+	 */
+	@Test
+	void testAddHours() throws Exception {
+		logTestStart();
+
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
+		projectDay.addHours(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+		projectDay.addHours(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+
+		int[] actuals = projectDay.getHours();
+
+		assertThat(actuals)
+				.isEqualTo(new int[] { 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+	}
+
+	/**
+	 * DOCME add JavaDoc for method testAddHours
+	 * 
+	 * @since 0.1.0
+	 */
+	@Test
+	void testAddHours_error_forLimit() throws Exception {
+		logTestStart();
+
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
+
+		projectDay.addHours(new int[] { 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+
+		assertThrows(IllegalArgumentException.class, () -> projectDay
+				.addHours(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }));
+	}
+
+	/**
+	 * DOCME add JavaDoc for method testAddHours
+	 * 
+	 * @since 0.1.0
+	 */
+	@Test
+	void testAddHours_error_forNegativeValue() throws Exception {
+		logTestStart();
+
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
+
+		assertThrows(IllegalArgumentException.class, () -> projectDay
+				.addHours(new int[] { -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }));
+	}
+
+	/**
+	 * DOCME add JavaDoc for method testAddHours
+	 * 
+	 * @since 0.1.0
+	 */
+	@Test
+	void testAddHours_error_forTooHugheValue() throws Exception {
+		logTestStart();
+
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
+
+		assertThrows(IllegalArgumentException.class, () -> projectDay
+				.addHours(new int[] { 3601, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }));
+	}
+
+	/**
 	 * DOCME add JavaDoc for method testGetDate
 	 * 
 	 * @since 0.1.0
@@ -26,10 +137,10 @@ class ProjectDayTest extends TestBase {
 	void testGetDate() throws Exception {
 		logTestStart();
 
-		ProjectDay projectDay = new ProjectDay(LocalDate.of(2024, 3, 1));
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
 
 		LocalDate actual = projectDay.getDate();
 
-		assertThat(actual).isEqualTo(LocalDate.of(2024, 3, 1));
+		assertThat(actual).isEqualTo(ANY_DATE);
 	}
 }
