@@ -17,6 +17,7 @@
 
 	<modules>
 		<module>model</module>
+		<module>file-adapter</module>
 		<module>statistics</module>
 		<module>view</module>
 	</modules>
