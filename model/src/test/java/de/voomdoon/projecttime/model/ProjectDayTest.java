@@ -158,6 +158,8 @@ class ProjectDayTest extends TestBase {
 
 		String actual = projectDay.toString();
 
+		logger.debug("actual: " + actual);
+
 		assertThat(actual).isNotBlank();
 	}
 }
