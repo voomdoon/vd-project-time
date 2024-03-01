@@ -12,4 +12,12 @@
 	<groupId>de.voomdoon.projecttime</groupId>
 	<artifactId>project-time-model</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.voomdoon.testing</groupId>
+			<artifactId>vd-test-util</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>
