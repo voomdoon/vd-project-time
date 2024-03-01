@@ -143,4 +143,21 @@ class ProjectDayTest extends TestBase {
 
 		assertThat(actual).isEqualTo(ANY_DATE);
 	}
+
+	/**
+	 * DOCME add JavaDoc for method testToString_doesNotTrowException
+	 * 
+	 * @since 0.1.0
+	 */
+	@Test
+	void testToString_isNotBlank() throws Exception {
+		logTestStart();
+
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
+		projectDay.addHours(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+
+		String actual = projectDay.toString();
+
+		assertThat(actual).isNotBlank();
+	}
 }

@@ -67,6 +67,21 @@ public class ProjectDay {
 	}
 
 	/**
+	 * @since 0.1.0
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ProjectDay(date: ");
+		builder.append(date);
+		builder.append(", hours: ");
+		builder.append(Arrays.toString(hours));
+		builder.append(")");
+
+		return builder.toString();
+	}
+
+	/**
 	 * DOCME add JavaDoc for method validateAddHours
 	 * 
 	 * @param hours
