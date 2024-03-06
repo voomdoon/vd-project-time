@@ -35,6 +35,11 @@ class ProjectGroupWriterTest extends TestBase {
 	private static final String ANY_NAME = "test-group";
 
 	/**
+	 * @since 0.1.0
+	 */
+	private final ProjectGroupWriter writer = new ProjectGroupWriter();
+
+	/**
 	 * DOCME add JavaDoc for method testWrite
 	 * 
 	 * @since 0.1.0
@@ -63,7 +68,7 @@ class ProjectGroupWriterTest extends TestBase {
 		ProjectGroup group = new ProjectGroup(ANY_NAME);
 		group.addDay(constructDay1());
 
-		Path file = new ProjectGroupWriter().write(group, getTempDirectory());
+		Path file = writer.write(group, getTempDirectory());
 
 		assumeThat(file).isRegularFile();
 
@@ -75,8 +80,6 @@ class ProjectGroupWriterTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method constructDay1
-	 * 
 	 * @return
 	 * @since 0.1.0
 	 */
@@ -88,8 +91,6 @@ class ProjectGroupWriterTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method constructHours1
-	 * 
 	 * @return
 	 * @since 0.1.0
 	 */
