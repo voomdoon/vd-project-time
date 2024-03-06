@@ -24,8 +24,6 @@ class ProjectTest extends TestBase {
 	private static final String ANY_NAME = "test-project";
 
 	/**
-	 * DOCME add JavaDoc for method testAddGroup
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -42,8 +40,6 @@ class ProjectTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testAddGroup
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -58,8 +54,6 @@ class ProjectTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testGetProjects_empty
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -91,8 +85,6 @@ class ProjectTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testGetName
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test

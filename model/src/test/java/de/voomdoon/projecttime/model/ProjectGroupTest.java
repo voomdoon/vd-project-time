@@ -34,8 +34,6 @@ class ProjectGroupTest extends TestBase {
 	private static final LocalDate ANY_OTHER_DATE = LocalDate.of(2024, 3, 2);
 
 	/**
-	 * DOCME add JavaDoc for method testAddDay
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -54,8 +52,6 @@ class ProjectGroupTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testAddDay
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -76,8 +72,6 @@ class ProjectGroupTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testAddDay
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -94,8 +88,6 @@ class ProjectGroupTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testGetDays
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -110,8 +102,6 @@ class ProjectGroupTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testGetName
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -126,8 +116,6 @@ class ProjectGroupTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method constructDay1
-	 * 
 	 * @return
 	 * @since 0.1.0
 	 */
@@ -139,8 +127,6 @@ class ProjectGroupTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method constructDay2
-	 * 
 	 * @return
 	 * @since 0.1.0
 	 */
@@ -152,8 +138,6 @@ class ProjectGroupTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method constructHours1
-	 * 
 	 * @return
 	 * @since 0.1.0
 	 */
