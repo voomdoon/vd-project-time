@@ -24,8 +24,6 @@ class ProjectDayTest extends TestBase {
 	private static final LocalDate ANY_DATE = LocalDate.of(2024, 3, 1);
 
 	/**
-	 * DOCME add JavaDoc for method getGetHours
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -42,8 +40,6 @@ class ProjectDayTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method getGetHours
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -63,8 +59,6 @@ class ProjectDayTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testAddHours
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -82,8 +76,6 @@ class ProjectDayTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testAddHours
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -114,8 +106,6 @@ class ProjectDayTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testAddHours
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test
@@ -129,8 +119,20 @@ class ProjectDayTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testGetDate
-	 * 
+	 * @since 0.1.0
+	 */
+	@Test
+	void testAddHours_retunrsDay() throws Exception {
+		logTestStart();
+
+		ProjectDay projectDay = new ProjectDay(ANY_DATE);
+		ProjectDay actual = projectDay
+				.addHours(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+
+		assertThat(actual).isSameAs(projectDay);
+	}
+
+	/**
 	 * @since 0.1.0
 	 */
 	@Test
@@ -145,8 +147,6 @@ class ProjectDayTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method testToString_doesNotTrowException
-	 * 
 	 * @since 0.1.0
 	 */
 	@Test

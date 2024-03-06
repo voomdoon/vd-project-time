@@ -36,14 +36,17 @@ public class ProjectDay {
 	 * DOCME add JavaDoc for method addHours
 	 * 
 	 * @param hours
+	 * @return
 	 * @since 0.1.0
 	 */
-	public void addHours(int[] hours) {
+	public ProjectDay addHours(int[] hours) {
 		for (int i = 0; i < hours.length; i++) {
 			validateAddHours(hours, i);
 
 			this.hours[i] += hours[i];
 		}
+
+		return this;
 	}
 
 	/**
