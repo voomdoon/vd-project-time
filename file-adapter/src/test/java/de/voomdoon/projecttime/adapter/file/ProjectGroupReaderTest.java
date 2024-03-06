@@ -53,8 +53,6 @@ class ProjectGroupReaderTest extends TestBase {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method constructHours1
-	 * 
 	 * @return
 	 * @since 0.1.0
 	 */
