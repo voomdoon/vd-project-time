@@ -63,6 +63,23 @@ class ProjectTest extends TestBase {
 	 * @since 0.1.0
 	 */
 	@Test
+	void testAddGroup2() throws Exception {
+		logTestStart();
+
+		Project project = new Project(ANY_NAME);
+
+		project.addGroup(new ProjectGroup("test-group1"));
+		project.addGroup(new ProjectGroup("test-group2"));
+
+		List<ProjectGroup> actuals = project.getGroups();
+
+		assertThat(actuals).hasSize(2);
+	}
+
+	/**
+	 * @since 0.1.0
+	 */
+	@Test
 	void testGetGroups_empty() throws Exception {
 		logTestStart();
 
