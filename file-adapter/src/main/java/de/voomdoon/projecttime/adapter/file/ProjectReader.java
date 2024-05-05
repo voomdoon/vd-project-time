@@ -8,7 +8,7 @@ import de.voomdoon.projecttime.model.Project;
 import de.voomdoon.projecttime.model.ProjectGroup;
 
 /**
- * DOCME add JavaDoc for
+ * Reader for {@link Project}.
  *
  * @author André Schulz
  *

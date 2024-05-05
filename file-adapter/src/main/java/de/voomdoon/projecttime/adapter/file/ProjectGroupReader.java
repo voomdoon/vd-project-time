@@ -11,7 +11,7 @@ import de.voomdoon.projecttime.model.ProjectDay;
 import de.voomdoon.projecttime.model.ProjectGroup;
 
 /**
- * DOCME add JavaDoc for
+ * Reader for {@link ProjectGroup}.
  *
  * @author André Schulz
  *
