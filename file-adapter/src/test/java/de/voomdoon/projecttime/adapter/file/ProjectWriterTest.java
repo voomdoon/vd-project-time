@@ -6,10 +6,13 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import de.voomdoon.projecttime.model.Project;
 import de.voomdoon.projecttime.model.ProjectDay;
 import de.voomdoon.projecttime.model.ProjectGroup;
+import de.voomdoon.testing.file.TempFileExtension;
+import de.voomdoon.testing.file.TempOutputDirectory;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
@@ -19,6 +22,7 @@ import de.voomdoon.testing.tests.TestBase;
  *
  * @since 0.1.0
  */
+@ExtendWith(TempFileExtension.class)
 class ProjectWriterTest extends TestBase {
 
 	/**
@@ -35,15 +39,13 @@ class ProjectWriterTest extends TestBase {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testWrite_existing_createsExpectedFiles() throws Exception {
+	void testWrite_existing_createsExpectedFiles(@TempOutputDirectory Path output) throws Exception {
 		logTestStart();
 
 		Project project = new Project("test-project");
 		ProjectGroup group = new ProjectGroup("test-group");
 		group.addDay(new ProjectDay(ANY_DATE).addHours(constructHours1()));
 		project.addGroup(group);
-
-		Path output = Path.of(getTempDirectory().toString(), "output");
 
 		writer.write(project, output);
 		writer.write(project, output);
@@ -56,15 +58,13 @@ class ProjectWriterTest extends TestBase {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testWrite_new_createsExpectedFiles() throws Exception {
+	void testWrite_new_createsExpectedFiles(@TempOutputDirectory Path output) throws Exception {
 		logTestStart();
 
 		Project project = new Project("test-project");
 		ProjectGroup group = new ProjectGroup("test-group");
 		group.addDay(new ProjectDay(ANY_DATE).addHours(constructHours1()));
 		project.addGroup(group);
-
-		Path output = Path.of(getTempDirectory().toString(), "output");
 
 		writer.write(project, output);
 

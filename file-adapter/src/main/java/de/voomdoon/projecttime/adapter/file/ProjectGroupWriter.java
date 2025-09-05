@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import de.voomdoon.logging.LogManager;
+import de.voomdoon.logging.Logger;
 import de.voomdoon.projecttime.model.ProjectDay;
 import de.voomdoon.projecttime.model.ProjectGroup;
 
@@ -22,6 +24,11 @@ public class ProjectGroupWriter {
 	private static final String HEADLINE = "date\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\t21\t22\t23";
 
 	/**
+	 * @since 0.1.0
+	 */
+	private final Logger logger = LogManager.getLogger(getClass());
+
+	/**
 	 * DOCME add JavaDoc for method write
 	 * 
 	 * @param group
@@ -32,6 +39,7 @@ public class ProjectGroupWriter {
 	 */
 	public Path write(ProjectGroup group, Path directory) throws IOException {
 		Path file = getFile(group, directory);
+		logger.trace("writing to " + file);
 		Files.writeString(file, getContent(group));
 
 		return file;

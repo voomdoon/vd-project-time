@@ -10,9 +10,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import de.voomdoon.projecttime.model.ProjectDay;
 import de.voomdoon.projecttime.model.ProjectGroup;
+import de.voomdoon.testing.file.TempFileExtension;
+import de.voomdoon.testing.file.TempOutputDirectory;
+import de.voomdoon.testing.file.WithTempOutputDirectories;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
@@ -22,6 +26,8 @@ import de.voomdoon.testing.tests.TestBase;
  *
  * @since 0.1.0
  */
+@ExtendWith(TempFileExtension.class)
+@WithTempOutputDirectories(create = true)
 class ProjectGroupWriterTest extends TestBase {
 
 	/**
@@ -45,13 +51,13 @@ class ProjectGroupWriterTest extends TestBase {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testWrite_createsCorrectFile() throws Exception {
+	void testWrite_createsCorrectFile(@TempOutputDirectory Path output) throws Exception {
 		logTestStart();
 
 		ProjectGroup group = new ProjectGroup(ANY_NAME);
 		group.addDay(constructDay1());
 
-		Path file = new ProjectGroupWriter().write(group, getTempDirectory());
+		Path file = new ProjectGroupWriter().write(group, output);
 
 		assertThat(file).isRegularFile();
 	}
@@ -62,13 +68,13 @@ class ProjectGroupWriterTest extends TestBase {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testWrite_producesCorrectContent() throws Exception {
+	void testWrite_producesCorrectContent(@TempOutputDirectory Path output) throws Exception {
 		logTestStart();
 
 		ProjectGroup group = new ProjectGroup(ANY_NAME);
 		group.addDay(constructDay1());
 
-		Path file = writer.write(group, getTempDirectory());
+		Path file = writer.write(group, output);
 
 		assumeThat(file).isRegularFile();
 
